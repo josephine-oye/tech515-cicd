@@ -1,4 +1,20 @@
 # Introduction to CI/CD and Jenkins
+- [Introduction to CI/CD and Jenkins](#introduction-to-cicd-and-jenkins)
+  - [What is CI? (Continuous Integration)](#what-is-ci-continuous-integration)
+    - [How CI works](#how-ci-works)
+    - [Benefits of CI](#benefits-of-ci)
+  - [What is CD? (Continuous Delivery vs Continuous Deployment)](#what-is-cd-continuous-delivery-vs-continuous-deployment)
+    - [Continuous Delivery (manual sign-off / approval)](#continuous-delivery-manual-sign-off--approval)
+    - [Continuous Deployment (fully automated)](#continuous-deployment-fully-automated)
+  - [What is Jenkins?](#what-is-jenkins)
+  - [Why use Jenkins?](#why-use-jenkins)
+    - [Benefits](#benefits)
+    - [Disadvantages](#disadvantages)
+  - [Stages of a Jenkins CI/CD Pipeline](#stages-of-a-jenkins-cicd-pipeline)
+  - [Alternatives to Jenkins](#alternatives-to-jenkins)
+  - [Why Build a Pipeline? (Business Value)](#why-build-a-pipeline-business-value)
+  - [Links](#links)
+
 
 ## What is CI? (Continuous Integration)
 
@@ -90,8 +106,6 @@ A typical Jenkins pipeline includes the following stages:
 
 ![alt text](images/IMG_0385.PNG)
 
-
-
 ## Alternatives to Jenkins
 
 * GitLab CI
@@ -111,3 +125,11 @@ A typical Jenkins pipeline includes the following stages:
 * Faster time to market
 * Reduced deployment risk
 * Improved software quality through continuous feedback and testing
+
+## Links
+[Generate new key pair for Jenkins](SSH_github.md)
+[Jenkins Job 1 - Test](jenkins-job1-test.md)
+[Setup webook to trigger job 1](webhook.md)
+[Make dev branch](make_dev_branch.md)
+[Jenkins Job 2 - Merge](jenkins-job2-merge.md)
+[Jenkins Job 3 - Deploy](jenkins-job3-deploy.md)

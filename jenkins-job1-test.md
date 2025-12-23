@@ -1,29 +1,28 @@
 # Job 1 – CI Test (Build & Test Pipeline)
 
+- [Job 1 – CI Test (Build \& Test Pipeline)](#job-1--ci-test-build--test-pipeline)
+  - [Purpose of Job 1](#purpose-of-job-1)
+  - [Creating Job 1 in Jenkins](#creating-job-1-in-jenkins)
+    - [Step 1: Create the Job](#step-1-create-the-job)
+  - [General Configuration](#general-configuration)
+  - [Discard Old Builds](#discard-old-builds)
+      - [Configuration](#configuration)
+    - [GitHub Project](#github-project)
+  - [Source Code Management](#source-code-management)
+  - [Build Environment](#build-environment)
+  - [Build Steps](#build-steps)
+    - [Execute Shell](#execute-shell)
+    - [What this does](#what-this-does)
+  - [Build Trigger](#build-trigger)
+  - [Key Takeaways](#key-takeaways)
+
 ## Purpose of Job 1
 
 Job 1 is responsible for **running automated tests whenever code is pushed** to the repository.
 
 It acts as a **quality gate**, ensuring that only working code is allowed to progress to the merge and deployment stages of the CI/CD pipeline.
 
-
-
-## Position in the CI/CD Pipeline
-
-```
-
-GitHub push
-↓
-Job 1 – CI Test
-↓ (only if successful)
-Job 2 – CI Merge (dev → main)
-↓
-Job 3 – CD Deploy
-
-```
-
-Job 1 must pass before any merge or deployment occurs.
-
+![alt text](images/j1-home-1.png)
 
 
 ## Creating Job 1 in Jenkins
@@ -63,20 +62,20 @@ Max # of builds to keep: 5
 
 Example:
 ```
-*****
+https://github.com/josephine-oye/tech515-app-cicd-jenkins.git
 
 ```
 
 This allows Jenkins to link builds back to GitHub.
 
-
+![alt text](images/j1-1.png) 
 
 ## Source Code Management
 
 1. Select **Git**
 2. Repository URL (must be SSH):
 ```
-******
+git@github.com:josephine-oye/tech515-app-cicd-jenkins.git
 
 ```
 3. Add credentials:
@@ -86,12 +85,13 @@ This allows Jenkins to link builds back to GitHub.
 - Private key: *Enter directly* (copied from GitHub key)
 4. Branch specifier:
 ```
-*/main
+*/dev
 ```
+Use this link for instructions on how to _[Make dev branch](make_dev_branch.md)_ 
 
 Using SSH ensures Jenkins can securely access the repository.
 
-
+![alt text](images/j1-2.png)
 
 ## Build Environment
 
@@ -104,6 +104,7 @@ NodeJS 20
 
 This ensures the correct runtime environment is available for the app.
 
+![alt text](images/j1-3.png)
 
 ## Build Steps
 
@@ -131,22 +132,12 @@ If any test fails, the job fails.
 
 Job 1 is triggered automatically by **GitHub webhooks** whenever code is pushed.
 
-This ensures tests run without manual intervention.
+This ensures tests run without manual intervention. Use Link Below: 
 
-
-## Expected Outcome
-
-* ✅ Tests pass → Job 1 succeeds
-* ❌ Tests fail → pipeline stops
-* Only successful builds trigger Job 2
-
+[Setup webook to trigger job 1](webhook.md)
 
 ## Key Takeaways
 
 * Job 1 protects the pipeline from broken code
 * Automated testing enforces consistency
 * Forms the foundation of the CI/CD workflow
-
-
-
-
